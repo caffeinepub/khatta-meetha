@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   KHATTA MEETHA — Custom Font Declarations
+   ============================================================ */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   KHATTA MEETHA — Design Tokens (OKLCH)
+   Aesthetic: Moody Indian Luxury — Deep Midnight + Saffron Gold + 
+   Crimson accents on a dark ink background
+   ============================================================ */
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Backgrounds — dark ink / deep charcoal */
+    --background: 0.12 0.01 30;
+    --foreground: 0.96 0.01 80;
+
+    /* Card / Popover — slightly lighter dark surface */
+    --card: 0.17 0.015 30;
+    --card-foreground: 0.96 0.01 80;
+    --popover: 0.17 0.015 30;
+    --popover-foreground: 0.96 0.01 80;
+
+    /* Primary — Saffron/Turmeric Gold */
+    --primary: 0.72 0.17 68;
+    --primary-foreground: 0.1 0.01 30;
+
+    /* Secondary — Warm Deep Red / Maroon */
+    --secondary: 0.28 0.08 15;
+    --secondary-foreground: 0.96 0.01 80;
+
+    /* Muted — warm grey with slight warm cast */
+    --muted: 0.22 0.02 30;
+    --muted-foreground: 0.62 0.04 60;
+
+    /* Accent — Bright Saffron / Amber */
+    --accent: 0.65 0.18 55;
+    --accent-foreground: 0.1 0.01 30;
+
+    /* Destructive — Deep Crimson */
+    --destructive: 0.55 0.22 22;
+    --destructive-foreground: 0.96 0.01 80;
+
+    /* Borders / Inputs */
+    --border: 0.28 0.03 30;
+    --input: 0.20 0.02 30;
+    --ring: 0.72 0.17 68;
+
+    /* Chart palette */
+    --chart-1: 0.72 0.17 68;
+    --chart-2: 0.55 0.22 22;
+    --chart-3: 0.65 0.18 55;
+    --chart-4: 0.50 0.15 160;
+    --chart-5: 0.60 0.18 290;
+
+    /* Sidebar */
+    --sidebar: 0.15 0.015 30;
+    --sidebar-foreground: 0.96 0.01 80;
+    --sidebar-primary: 0.72 0.17 68;
+    --sidebar-primary-foreground: 0.1 0.01 30;
+    --sidebar-accent: 0.28 0.08 15;
+    --sidebar-accent-foreground: 0.96 0.01 80;
+    --sidebar-border: 0.28 0.03 30;
+    --sidebar-ring: 0.72 0.17 68;
+
+    /* Custom tokens */
+    --gold: 0.72 0.17 68;
+    --saffron: 0.78 0.18 62;
+    --crimson: 0.50 0.22 22;
+    --spice: 0.60 0.20 38;
+    --ink: 0.12 0.01 30;
+    --cream: 0.94 0.03 80;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Sora", "Cabinet Grotesk", system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", Georgia, serif;
+  }
+}
+
+/* ============================================================
+   Utility Classes
+   ============================================================ */
+
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.font-body {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif;
+}
+
+.font-ui {
+  font-family: "Sora", system-ui, sans-serif;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.78 0.18 62),
+    oklch(0.65 0.18 55),
+    oklch(0.72 0.20 45)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Shimmer animation for loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.17 0.015 30) 25%,
+    oklch(0.22 0.02 30) 50%,
+    oklch(0.17 0.015 30) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Decorative border glow */
+.glow-border {
+  box-shadow: 0 0 0 1px oklch(0.72 0.17 68 / 0.3),
+              0 0 20px oklch(0.72 0.17 68 / 0.1);
+}
+
+/* Spice pattern background */
+.spice-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, oklch(0.65 0.18 55 / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, oklch(0.50 0.22 22 / 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 60% 80%, oklch(0.72 0.17 68 / 0.06) 0%, transparent 40%);
+}
+
+/* Section divider ornament */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.72 0.17 68 / 0.4), transparent);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0.01 30);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.28 0.03 30);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.72 0.17 68 / 0.5);
+}
