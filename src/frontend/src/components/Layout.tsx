@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useQueryClient } from "@tanstack/react-query";
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { Menu, UtensilsCrossed, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
@@ -44,13 +44,18 @@ export default function Layout() {
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                <UtensilsCrossed className="w-4 h-4 text-primary-foreground" />
+            <Link
+              to="/"
+              className="flex items-center group"
+              data-ocid="nav.home_link"
+            >
+              <div data-ocid="nav.logo">
+                <img
+                  src="/assets/uploads/Screenshot-2026-03-09-013815-1.png"
+                  alt="Khatta Meetha Cloud Kitchen"
+                  className="h-12 w-auto object-contain"
+                />
               </div>
-              <span className="font-display font-bold text-lg tracking-wide text-gold-gradient">
-                KHATTA MEETHA
-              </span>
             </Link>
 
             {/* Desktop Nav */}
@@ -168,13 +173,12 @@ export default function Layout() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <UtensilsCrossed className="w-4 h-4 text-primary-foreground" />
-                </div>
-                <span className="font-display font-bold text-lg text-gold-gradient">
-                  KHATTA MEETHA
-                </span>
+              <div className="flex items-center mb-3">
+                <img
+                  src="/assets/uploads/Screenshot-2026-03-09-013815-1.png"
+                  alt="Khatta Meetha Cloud Kitchen"
+                  className="h-16 w-auto object-contain"
+                />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed font-ui">
                 A symphony of sweet &amp; sour flavors. Authentic Indian cuisine
