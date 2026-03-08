@@ -123,7 +123,7 @@ export default function HomePage() {
                 data-ocid="hero.secondary_button"
                 className="font-ui font-semibold px-8 border-primary/50 text-primary hover:bg-primary/10"
               >
-                <Link to="/reservations">Book a Table</Link>
+                <Link to="/menu">View Menu</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -415,8 +415,8 @@ export default function HomePage() {
               size="lg"
               className="font-ui font-semibold px-10 bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl shadow-primary/30"
             >
-              <Link to="/reservations">
-                Book a Table <ChevronRight className="ml-2 w-4 h-4" />
+              <Link to="/menu">
+                View Menu <ChevronRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </motion.div>

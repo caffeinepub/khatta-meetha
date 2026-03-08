@@ -10,7 +10,6 @@ import Layout from "./components/Layout";
 import AdminPage from "./pages/AdminPage";
 import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
-import ReservationsPage from "./pages/ReservationsPage";
 
 // Root route wraps everything in Layout
 const rootRoute = createRootRoute({
@@ -39,12 +38,6 @@ const menuRoute = createRoute({
   component: MenuPage,
 });
 
-const reservationsRoute = createRoute({
-  getParentRoute: () => layoutRoute,
-  path: "/reservations",
-  component: ReservationsPage,
-});
-
 const adminRoute = createRoute({
   getParentRoute: () => layoutRoute,
   path: "/admin",
@@ -52,12 +45,7 @@ const adminRoute = createRoute({
 });
 
 const routeTree = rootRoute.addChildren([
-  layoutRoute.addChildren([
-    indexRoute,
-    menuRoute,
-    reservationsRoute,
-    adminRoute,
-  ]),
+  layoutRoute.addChildren([indexRoute, menuRoute, adminRoute]),
 ]);
 
 const router = createRouter({ routeTree });

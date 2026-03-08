@@ -9,7 +9,6 @@ import { useInternetIdentity } from "../hooks/useInternetIdentity";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/menu", label: "Menu", ocid: "nav.menu_link" },
-  { to: "/reservations", label: "Reservations", ocid: "nav.reservations_link" },
   { to: "/admin", label: "Admin", ocid: "nav.admin_link" },
 ];
 
